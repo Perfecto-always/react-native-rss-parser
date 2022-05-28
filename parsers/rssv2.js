@@ -127,8 +127,17 @@ const getItemEnclosures = (node) => {
 };
 
 const getItemMedia = (node) => {
+    function getMediaUrl() {
+        const attribute = node.getElementsByTagName('media:content');
+
+        if (attribute) {
+            return attribute.getAttribute('url');
+        }
+
+        return undefined;
+    }
     return {
-        content: utils.getElementTextContent(node, 'media:content'),
+        content: "Helllo",
         credit: utils.getElementTextContent(node, 'media:credit'),
         description: utils.getElementTextContent(node, 'media:description'),
     };
