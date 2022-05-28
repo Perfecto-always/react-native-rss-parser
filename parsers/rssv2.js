@@ -128,7 +128,7 @@ const getItemEnclosures = (node) => {
 
 const getItemMedia = (node) => {
     function getMediaUrl() {
-        const attribute = node.getElementsByTagName('media:content');
+        const attribute = node.getElementsByTagName('media:content')[0];
 
         if (attribute) {
             return attribute.getAttribute('url');
@@ -137,7 +137,7 @@ const getItemMedia = (node) => {
         return undefined;
     }
     return {
-        content: "Helllo",
+        content: getMediaUrl(),
         credit: utils.getElementTextContent(node, 'media:credit'),
         description: utils.getElementTextContent(node, 'media:description'),
     };
